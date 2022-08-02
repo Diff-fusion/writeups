@@ -71,7 +71,7 @@ The patched binary has some changes but opening it in Ghidra was about as helpfu
 Executing it just results in a crash.
 The [symbols](./symbols.idc) also seem more cryptic than helpful.
 The only thing remaining is the CFG.
-![CFG](./cfg.png)
+![CFG](./cfg.png)\
 This finally gives some insight into the program but no details on how the input is processed.
 
 ## Blackbox
