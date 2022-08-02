@@ -57,7 +57,7 @@ The next steps are clear.
 Deobfuscate the binary, reverse the program and find a matching flag.
 Shouldn't be that hard. Right?
 
-As Movfuscator isn't particularly new and has been used in previous CTFs (TODO) someone has surely written a deobfuscator.
+As Movfuscator isn't particularly new and has been used in previous CTFs ( [here](https://ctftime.org/writeup/14537), [here](https://ctftime.org/writeup/12263) and [here](https://secgroup.github.io/2017/02/06/alexctf2017-writeup-packed-movement/) ) someone has surely written a deobfuscator.
 And Searching the Internet quickly shows [Demovfuscator](https://github.com/kirschju/demovfuscator).
 That should make it much easier.
 
@@ -69,7 +69,7 @@ As output it gives some symbols, a CFG and a patched binary.
 
 The patched binary has some changes but opening it in Ghidra was about as helpful as before.
 Executing it just results in a crash.
-The [symbols](./symbols.idc) (TODO) also seem more cryptic than helpful.
+The [symbols](./symbols.idc) also seem more cryptic than helpful.
 The only thing remaining is the CFG.
 ![CFG](./cfg.png)
 This finally gives some insight into the program but no details on how the input is processed.
