@@ -24,6 +24,7 @@ The following states exist:
 * `RESTING`
 * `SHOPPING`
 * `FINISHED`
+
 And the state transitions:
 * `enter_tavern`: `RESTING` -> `SHOPPING`
 * `checkout`: Any -> `RESTING`
@@ -31,11 +32,14 @@ And the state transitions:
 * `bring_it_on`: `PREPARE_FOR_TROUBLE` -> `ON_ADVENTURE`
 * `return_home`: `ON_ADVENTURE` -> `FINISHED`
 * `get_the_reward`: `FINISHED` | `SHOPPING` -> `RESTING`
+
 Two interesting things stand out:
 1. The `checkout` function allows all incoming states
 2. The `get_the_reward` function allows `SHOPPING` as input
-Both of these are unexpected and likely a bug.
 
+Both of these are unexpected and likely a source of bugs.
+
+### Exploit
 The `get_the_reward` function doesn't check if a monster is killed.
 It always gives the reward for the monster at the index that was passed to `bring_it_on`.
 So if we use `enter_tavern` to get to `SHOPPING` and then use `get_the_reward` a reward will be claimed without the need to kill the monster.
@@ -95,4 +99,5 @@ The exploit flow is as follows:
     3. Get the coins with `get_the_reward`
     4. Use `checkout` to get rid of the ticket from `enter_tavern`
 5. Buy the flag
+
 The server then responds with the flag `justCTF{Ott3r_uses_expl0it_its_sup3r_eff3ctiv3}`
